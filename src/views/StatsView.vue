@@ -20,6 +20,7 @@
     <li>Rounds drawn: {{ this.state.data.drawn }}</li>
   </ul>
 
+  <button @click="resetStats">Reset All Stats</button>
   <router-link :to="{ name: 'Start' }">Back</router-link>
 </template>
 
@@ -30,6 +31,12 @@ export default {
   data() {
     return {
       state: statsStore()
+    }
+  },
+  methods: {
+    resetStats() {
+      localStorage.clear()
+      window.location.reload()
     }
   },
 
