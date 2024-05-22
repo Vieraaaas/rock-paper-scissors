@@ -4,42 +4,42 @@
   <h3>You</h3>
   <ul>
     <li v-if="!this.showPercentages">Rock: {{ this.state.data.userRock }}</li>
-    <li v-else-if="this.showPercentages">Rock: {{ this.percentageUserRock }}%</li>
+    <li v-else-if="this.showPercentages">Rock: {{ ~~this.percentageUserRock }}%</li>
 
     <li v-if="!this.showPercentages">Paper: {{ this.state.data.userPaper }}</li>
-    <li v-else-if="this.showPercentages">Paper: {{ this.percentageUserPaper }}%</li>
+    <li v-else-if="this.showPercentages">Paper: {{ ~~this.percentageUserPaper }}%</li>
 
     <li v-if="!this.showPercentages">Scissors: {{ this.state.data.userScissors }}</li>
-    <li v-else-if="this.showPercentages">Scissors: {{ this.percentageUserScissors }}%</li>
+    <li v-else-if="this.showPercentages">Scissors: {{ ~~this.percentageUserScissors }}%</li>
   </ul>
   <h3>Computer</h3>
   <ul>
     <li v-if="!this.showPercentages">Rock: {{ this.state.data.computerRock }}</li>
-    <li v-else-if="this.showPercentages">Rock: {{ this.percentageComputerRock }}%</li>
+    <li v-else-if="this.showPercentages">Rock: {{ ~~this.percentageComputerRock }}%</li>
 
     <li v-if="!this.showPercentages">Paper: {{ this.state.data.computerPaper }}</li>
-    <li v-else-if="this.showPercentages">Paper: {{ this.percentageComputerPaper }}%</li>
+    <li v-else-if="this.showPercentages">Paper: {{ ~~this.percentageComputerPaper }}%</li>
 
     <li v-if="!this.showPercentages">Scissors: {{ this.state.data.computerScissors }}</li>
-    <li v-else-if="this.showPercentages">Scissors: {{ this.percentageComputerScissors }}%</li>
+    <li v-else-if="this.showPercentages">Scissors: {{ ~~this.percentageComputerScissors }}%</li>
   </ul>
   <h3>Matches</h3>
   <ul>
     <li v-if="!this.showPercentages">Matches won: {{ this.state.data.matchesWon }}</li>
-    <li v-else-if="this.showPercentages">Matches won: {{ this.percentageMatchesWon }}%</li>
+    <li v-else-if="this.showPercentages">Matches won: {{ ~~this.percentageMatchesWon }}%</li>
 
     <li v-if="!this.showPercentages">Matches lost: {{ this.state.data.matchesLost }}</li>
-    <li v-else-if="this.showPercentages">Matches lost: {{ this.percentageMatchesLost }}%</li>
+    <li v-else-if="this.showPercentages">Matches lost: {{ ~~this.percentageMatchesLost }}%</li>
 
     <br />
     <li v-if="!this.showPercentages">Rounds won: {{ this.state.data.roundsWon }}</li>
-    <li v-else-if="this.showPercentages">Rounds won: {{ this.percentageRoundsWon }}%</li>
+    <li v-else-if="this.showPercentages">Rounds won: {{ ~~this.percentageRoundsWon }}%</li>
 
     <li v-if="!this.showPercentages">Rounds lost: {{ this.state.data.roundsLost }}</li>
-    <li v-else-if="this.showPercentages">Rounds lost: {{ this.percentageRoundsLost }}%</li>
+    <li v-else-if="this.showPercentages">Rounds lost: {{ ~~this.percentageRoundsLost }}%</li>
 
     <li v-if="!this.showPercentages">Rounds drawn: {{ this.state.data.drawn }}</li>
-    <li v-else-if="this.showPercentages">Rounds drawn: {{ this.percentageRoundsDrawn }}%</li>
+    <li v-else-if="this.showPercentages">Rounds drawn: {{ ~~this.percentageRoundsDrawn }}%</li>
   </ul>
 
   <button @click="toggleStats">{{ this.toggleText }}</button>
