@@ -5,6 +5,11 @@
   <button choice="Paper" @click="playRound">PAPER</button>
   <button choice="Scissors" @click="playRound">SCISSORS</button>
   <p>{{ result }}</p>
+  <dialog ref="match-end">
+    <p>{{ this.endMsg }}</p>
+    <button @click="playAgain">Again!</button>
+    <router-link :to="{ name: 'Start' }">That's enough for now</router-link>
+  </dialog>
   <router-link :to="{ name: 'Start' }">Back</router-link>
 </template>
 
@@ -20,7 +25,8 @@ export default {
       choices: ['Rock', 'Paper', 'Scissors'],
       choiceUser: '',
       choiceComputer: '',
-      result: ''
+      result: '',
+      endMsg: ''
     }
   },
   methods: {
@@ -53,7 +59,24 @@ export default {
 
       this.state.data[`user${this.choiceUser}`] += 1
       this.state.data[`computer${this.choiceComputer}`] += 1
+
+      if (this.scoreUser >= 3) {
+        this.endMsg = "You've won! Congratulations!"
+        this.openDialog()
+      }
+
+      if (this.scoreComputer >= 3) {
+        this.endMsg = "You've lost! Better luck next time!"
+        this.openDialog()
+      }
+
       localStorage.setItem('stats', JSON.stringify(this.state.data))
+    },
+    openDialog() {
+      this.$refs['match-end'].showModal()
+    },
+    playAgain() {
+      window.location.reload()
     }
   },
   created() {
