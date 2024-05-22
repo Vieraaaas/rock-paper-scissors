@@ -61,20 +61,24 @@ export default {
       this.state.data[`computer${this.choiceComputer}`] += 1
 
       if (this.scoreUser >= 3) {
+        this.state.data.matchesWon += 1
         this.endMsg = "You've won! Congratulations!"
         this.openDialog()
       }
 
       if (this.scoreComputer >= 3) {
+        this.state.data.matchesLost += 1
         this.endMsg = "You've lost! Better luck next time!"
         this.openDialog()
       }
 
       localStorage.setItem('stats', JSON.stringify(this.state.data))
     },
+
     openDialog() {
       this.$refs['match-end'].showModal()
     },
+
     playAgain() {
       window.location.reload()
     }

@@ -12,7 +12,9 @@ export const statsStore = defineStore('stats', {
         computerScissors: 0,
         roundsWon: 0,
         roundsLost: 0,
-        drawn: 0
+        drawn: 0,
+        matchesWon: 0,
+        matchesLost: 0
       }
     }
   },

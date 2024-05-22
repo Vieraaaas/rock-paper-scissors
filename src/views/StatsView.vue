@@ -15,6 +15,9 @@
   </ul>
   <h3>Matches</h3>
   <ul>
+    <li>Matches won: {{ this.state.data.matchesWon }}</li>
+    <li>Matches lost: {{ this.state.data.matchesLost }}</li>
+    <br />
     <li>Rounds won: {{ this.state.data.roundsWon }}</li>
     <li>Rounds lost: {{ this.state.data.roundsLost }}</li>
     <li>Rounds drawn: {{ this.state.data.drawn }}</li>
