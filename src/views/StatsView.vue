@@ -66,40 +66,40 @@ export default {
       return this.state.data.userRock + this.state.data.userPaper + this.state.data.userScissors
     },
     percentageUserRock() {
-      return (this.state.data.userRock / this.totalRounds) * 100
+      return ((this.state.data.userRock / this.totalRounds) * 100).toFixed(0)
     },
     percentageUserPaper() {
-      return (this.state.data.userPaper / this.totalRounds) * 100
+      return ((this.state.data.userPaper / this.totalRounds) * 100).toFixed(0)
     },
     percentageUserScissors() {
-      return (this.state.data.userScissors / this.totalRounds) * 100
+      return ((this.state.data.userScissors / this.totalRounds) * 100).toFixed(0)
     },
     percentageComputerRock() {
-      return (this.state.data.computerRock / this.totalRounds) * 100
+      return ((this.state.data.computerRock / this.totalRounds) * 100).toFixed(0)
     },
     percentageComputerPaper() {
-      return (this.state.data.computerPaper / this.totalRounds) * 100
+      return ((this.state.data.computerPaper / this.totalRounds) * 100).toFixed(0)
     },
     percentageComputerScissors() {
-      return (this.state.data.computerScissors / this.totalRounds) * 100
+      return ((this.state.data.computerScissors / this.totalRounds) * 100).toFixed(0)
     },
     percentageRoundsWon() {
-      return (this.state.data.roundsWon / this.totalRounds) * 100
+      return ((this.state.data.roundsWon / this.totalRounds) * 100).toFixed(0)
     },
     percentageRoundsLost() {
-      return (this.state.data.roundsLost / this.totalRounds) * 100
+      return ((this.state.data.roundsLost / this.totalRounds) * 100).toFixed(0)
     },
     percentageRoundsDrawn() {
-      return (this.state.data.drawn / this.totalRounds) * 100
+      return ((this.state.data.drawn / this.totalRounds) * 100).toFixed(0)
     },
     totalMatches() {
       return this.state.data.matchesWon + this.state.data.matchesLost
     },
     percentageMatchesWon() {
-      return (this.state.data.matchesWon / this.totalMatches) * 100
+      return ((this.state.data.matchesWon / this.totalMatches) * 100).toFixed(0)
     },
     percentageMatchesLost() {
-      return (this.state.data.matchesLost / this.totalMatches) * 100
+      return ((this.state.data.matchesLost / this.totalMatches) * 100).toFixed(0)
     }
   },
 
