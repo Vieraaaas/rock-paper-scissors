@@ -1,16 +1,18 @@
 <template>
-  <p>Your Score: {{ this.scoreUser }}</p>
-  <p>Computer's Score: {{ this.scoreComputer }}</p>
-  <button choice="Rock" @click="playRound">ROCK</button>
-  <button choice="Paper" @click="playRound">PAPER</button>
-  <button choice="Scissors" @click="playRound">SCISSORS</button>
-  <p>{{ result }}</p>
-  <dialog ref="match-end">
-    <p>{{ this.endMsg }}</p>
-    <button @click="playAgain">Again!</button>
-    <router-link :to="{ name: 'Start' }">That's enough for now</router-link>
-  </dialog>
-  <router-link :to="{ name: 'Start' }">Back</router-link>
+  <main>
+    <p>Your Score: {{ this.scoreUser }}</p>
+    <p>Computer's Score: {{ this.scoreComputer }}</p>
+    <button choice="Rock" @click="playRound">ROCK</button>
+    <button choice="Paper" @click="playRound">PAPER</button>
+    <button choice="Scissors" @click="playRound">SCISSORS</button>
+    <p>{{ result }}</p>
+    <dialog ref="match-end">
+      <p>{{ this.endMsg }}</p>
+      <button @click="playAgain">Again!</button>
+      <router-link :to="{ name: 'Start' }">That's enough for now</router-link>
+    </dialog>
+    <router-link :to="{ name: 'Start' }">Back</router-link>
+  </main>
 </template>
 
 <script>
