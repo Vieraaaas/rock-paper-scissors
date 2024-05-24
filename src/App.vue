@@ -10,7 +10,7 @@
   <router-view />
 </template>
 
-<style>
+<style scoped>
 .site-header {
   font-family: 'Permanent Marker', cursive;
   font-size: 1.5rem;
