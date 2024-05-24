@@ -2,9 +2,19 @@
   <main>
     <p>Your Score: {{ this.scoreUser }}</p>
     <p>Computer's Score: {{ this.scoreComputer }}</p>
-    <button choice="Rock" @click="playRound">ROCK</button>
-    <button choice="Paper" @click="playRound">PAPER</button>
-    <button choice="Scissors" @click="playRound">SCISSORS</button>
+    <button choice="Rock" @click="playRound">
+      ROCK
+      <img class="button-img" src="@/assets/images/rock.svg" aria-hidden="true" />
+    </button>
+    <button choice="Paper" @click="playRound">
+      PAPER
+      <img class="button-img" src="@/assets/images/paper.svg" aria-hidden="true" />
+    </button>
+    <button choice="Scissors" @click="playRound">
+      SCISSORS
+      <img class="button-img" src="@/assets/images/scissors.svg" aria-hidden="true" />
+    </button>
+
     <p>{{ result }}</p>
     <dialog ref="match-end">
       <p>{{ this.endMsg }}</p>
@@ -90,3 +100,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.button-img {
+  display: block;
+  pointer-events: none;
+  height: 5rem;
+}
+</style>
