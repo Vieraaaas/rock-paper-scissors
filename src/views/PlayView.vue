@@ -1,27 +1,41 @@
 <template>
   <main>
-    <p>Your Score: {{ this.scoreUser }}</p>
-    <p>Computer's Score: {{ this.scoreComputer }}</p>
-    <button choice="Rock" @click="playRound">
-      ROCK
-      <img class="button-img" src="@/assets/images/rock.svg" aria-hidden="true" />
-    </button>
-    <button choice="Paper" @click="playRound">
-      PAPER
-      <img class="button-img" src="@/assets/images/paper.svg" aria-hidden="true" />
-    </button>
-    <button choice="Scissors" @click="playRound">
-      SCISSORS
-      <img class="button-img" src="@/assets/images/scissors.svg" aria-hidden="true" />
-    </button>
+    <div class="scores">
+      <p>Your Score: {{ this.scoreUser }}</p>
+      <p>Computer's Score: {{ this.scoreComputer }}</p>
+    </div>
 
-    <p>{{ result }}</p>
-    <dialog ref="match-end">
-      <p>{{ this.endMsg }}</p>
-      <button @click="playAgain">Again!</button>
-      <router-link :to="{ name: 'Start' }">That's enough for now</router-link>
-    </dialog>
-    <router-link :to="{ name: 'Start' }">Back</router-link>
+    <div id="arena" aria-hidden="true">
+      <img id="imgChoiceUser" src="@/assets/images/rock.svg" />
+      <img id="imgChoiceComputer" src="@/assets/images/scissors.svg" />
+    </div>
+
+    <div class="input">
+      <button choice="Rock" @click="playRound">
+        ROCK
+        <img class="button-img" src="@/assets/images/rock.svg" aria-hidden="true" />
+      </button>
+      <button choice="Paper" @click="playRound">
+        PAPER
+        <img class="button-img" src="@/assets/images/paper.svg" aria-hidden="true" />
+      </button>
+      <button choice="Scissors" @click="playRound">
+        SCISSORS
+        <img class="button-img" src="@/assets/images/scissors.svg" aria-hidden="true" />
+      </button>
+    </div>
+    <div class="output">
+      <p>{{ result }}</p>
+      <dialog ref="match-end">
+        <p>{{ this.endMsg }}</p>
+        <button @click="playAgain">Again!</button>
+        <router-link :to="{ name: 'Start' }">That's enough for now</router-link>
+      </dialog>
+    </div>
+
+    <nav>
+      <router-link :to="{ name: 'Start' }">Back</router-link>
+    </nav>
   </main>
 </template>
 
@@ -45,6 +59,8 @@ export default {
     playRound(event) {
       this.choiceComputer = this.choices[Math.floor(Math.random() * this.choices.length)]
       this.choiceUser = event.target.getAttribute('choice')
+
+      this.animateRound()
 
       if (this.choiceComputer === this.choiceUser) {
         this.result = `It's a draw! You both chose ${this.choiceUser}`
@@ -93,6 +109,13 @@ export default {
 
     playAgain() {
       window.location.reload()
+    },
+    animateRound() {
+      const imgChoiceUser = document.getElementById('imgChoiceUser')
+      imgChoiceUser.style.transform = 'translateX(110%)'
+
+      const imgChoiceComputer = document.getElementById('imgChoiceComputer')
+      imgChoiceComputer.style.transform = 'translateX(-110%)'
     }
   },
   created() {
@@ -102,6 +125,34 @@ export default {
 </script>
 
 <style scoped>
+main {
+  width: 80vw;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-between;
+}
+
+#arena {
+  height: 10rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+#imgChoiceUser,
+#imgChoiceComputer {
+  transition: 1s;
+}
+
+.input,
+.output,
+nav {
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .button-img {
   display: block;
   pointer-events: none;
