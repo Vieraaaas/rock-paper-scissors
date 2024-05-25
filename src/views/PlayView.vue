@@ -115,6 +115,12 @@ export default {
       window.location.reload()
     },
     animateRound() {
+      const imgChoiceUser = document.getElementById('imgChoiceUser')
+      imgChoiceUser.src = `src/assets/images/${this.choiceUser.toLowerCase()}.svg`
+
+      const imgChoiceComputer = document.getElementById('imgChoiceComputer')
+      imgChoiceComputer.src = `src/assets/images/${this.choiceComputer.toLowerCase()}.svg`
+
       const beforeImgChoiceUser = document.getElementById('beforeImgChoiceUser')
       beforeImgChoiceUser.style.flex = '1'
       const afterImgChoiceUser = document.getElementById('afterImgChoiceUser')
