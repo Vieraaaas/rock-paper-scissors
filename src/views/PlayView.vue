@@ -56,7 +56,8 @@ export default {
       choiceUser: '',
       choiceComputer: '',
       result: '',
-      endMsg: ''
+      endMsg: '',
+      interval: null
     }
   },
   methods: {
@@ -114,12 +115,36 @@ export default {
     playAgain() {
       window.location.reload()
     },
+
+    cycleImages() {
+      const choiceImages = [
+        'src/assets/images/rock.svg',
+        'src/assets/images/paper.svg',
+        'src/assets/images/scissors.svg'
+      ]
+
+      if (!this.interval) {
+        this.interval = setInterval(changeImage, 1000)
+      }
+      function changeImage() {
+        let imgChoiceUser = document.getElementById('imgChoiceUser')
+        let imgChoiceComputer = document.getElementById('imgChoiceComputer')
+        imgChoiceUser.src = choiceImages[Math.floor(Math.random() * choiceImages.length)]
+        imgChoiceComputer.src = choiceImages[Math.floor(Math.random() * choiceImages.length)]
+      }
+    },
+
     animateRound() {
+      clearInterval(this.interval)
+      this.interval = null
+
       const imgChoiceUser = document.getElementById('imgChoiceUser')
       imgChoiceUser.src = `src/assets/images/${this.choiceUser.toLowerCase()}.svg`
+      imgChoiceUser.style.opacity = 1
 
       const imgChoiceComputer = document.getElementById('imgChoiceComputer')
       imgChoiceComputer.src = `src/assets/images/${this.choiceComputer.toLowerCase()}.svg`
+      imgChoiceComputer.style.opacity = 1
 
       const beforeImgChoiceUser = document.getElementById('beforeImgChoiceUser')
       beforeImgChoiceUser.style.flex = '1'
@@ -134,6 +159,7 @@ export default {
   },
   created() {
     this.state.loadStats()
+    this.cycleImages()
   }
 }
 </script>
@@ -152,6 +178,11 @@ main {
   height: 10rem;
   display: flex;
   justify-content: center;
+}
+
+#imgChoiceUser,
+#imgChoiceComputer {
+  opacity: 0.2;
 }
 
 #beforeImgChoiceUser,
