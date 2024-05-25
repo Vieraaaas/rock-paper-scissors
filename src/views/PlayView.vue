@@ -6,8 +6,12 @@
     </div>
 
     <div id="arena" aria-hidden="true">
+      <div id="beforeImgChoiceUser"></div>
       <img id="imgChoiceUser" src="@/assets/images/rock.svg" />
+      <div id="afterImgChoiceUser"></div>
+      <div id="beforeImgChoiceComputer"></div>
       <img id="imgChoiceComputer" src="@/assets/images/scissors.svg" />
+      <div id="afterImgChoiceComputer"></div>
     </div>
 
     <div class="input">
@@ -111,11 +115,15 @@ export default {
       window.location.reload()
     },
     animateRound() {
-      const imgChoiceUser = document.getElementById('imgChoiceUser')
-      imgChoiceUser.style.transform = 'translateX(110%)'
+      const beforeImgChoiceUser = document.getElementById('beforeImgChoiceUser')
+      beforeImgChoiceUser.style.flex = '1'
+      const afterImgChoiceUser = document.getElementById('afterImgChoiceUser')
+      afterImgChoiceUser.style.flex = '0'
 
-      const imgChoiceComputer = document.getElementById('imgChoiceComputer')
-      imgChoiceComputer.style.transform = 'translateX(-110%)'
+      const beforeImgChoiceComputer = document.getElementById('beforeImgChoiceComputer')
+      beforeImgChoiceComputer.style.flex = '0'
+      const afterImgChoiceComputer = document.getElementById('afterImgChoiceComputer')
+      afterImgChoiceComputer.style.flex = '1'
     }
   },
   created() {
@@ -137,13 +145,19 @@ main {
 #arena {
   height: 10rem;
   display: flex;
-  justify-content: space-between;
-  position: relative;
+  justify-content: center;
 }
 
-#imgChoiceUser,
-#imgChoiceComputer {
+#beforeImgChoiceUser,
+#afterImgChoiceComputer {
   transition: 1s;
+  flex-grow: 0;
+}
+
+#afterImgChoiceUser,
+#beforeImgChoiceComputer {
+  transition: 1s;
+  flex-grow: 1;
 }
 
 .input,
