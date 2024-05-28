@@ -6,12 +6,11 @@
     </div>
 
     <div id="arena" aria-hidden="true">
-      <div id="beforeImgChoiceUser"></div>
+      <div id="arenaDivLeft"></div>
       <img id="imgChoiceUser" src="@/assets/images/rock.svg" />
-      <div id="afterImgChoiceUser"></div>
-      <div id="beforeImgChoiceComputer"></div>
+      <div id="arenaDivMiddle"></div>
       <img id="imgChoiceComputer" src="@/assets/images/scissors.svg" />
-      <div id="afterImgChoiceComputer"></div>
+      <div id="arenaDivRight"></div>
     </div>
 
     <div class="input">
@@ -135,26 +134,33 @@ export default {
     },
 
     animateRound() {
-      clearInterval(this.interval)
-      this.interval = null
-
       const imgChoiceUser = document.getElementById('imgChoiceUser')
+      const imgChoiceComputer = document.getElementById('imgChoiceComputer')
+      const arenaDivLeft = document.getElementById('arenaDivLeft')
+      const arenaDivMiddle = document.getElementById('arenaDivMiddle')
+      const arenaDivRight = document.getElementById('arenaDivRight')
+
+      arenaDivLeft.classList.remove('animateGrow')
+      arenaDivRight.classList.remove('animateGrow')
+      arenaDivMiddle.classList.remove('animateShrink')
+
       imgChoiceUser.src = `src/assets/images/${this.choiceUser.toLowerCase()}.svg`
       imgChoiceUser.style.opacity = 1
 
-      const imgChoiceComputer = document.getElementById('imgChoiceComputer')
       imgChoiceComputer.src = `src/assets/images/${this.choiceComputer.toLowerCase()}.svg`
       imgChoiceComputer.style.opacity = 1
 
-      const beforeImgChoiceUser = document.getElementById('beforeImgChoiceUser')
-      beforeImgChoiceUser.style.flex = '1'
-      const afterImgChoiceUser = document.getElementById('afterImgChoiceUser')
-      afterImgChoiceUser.style.flex = '0'
+      //Force reflow to ensure that the animation works on successive rounds successive -> https://developer.mozilla.org/en-US/docs/Glossary/Reflow
+      arenaDivLeft.offsetHeight
+      arenaDivRight.offsetHeight
+      arenaDivMiddle.offsetHeight
 
-      const beforeImgChoiceComputer = document.getElementById('beforeImgChoiceComputer')
-      beforeImgChoiceComputer.style.flex = '0'
-      const afterImgChoiceComputer = document.getElementById('afterImgChoiceComputer')
-      afterImgChoiceComputer.style.flex = '1'
+      clearInterval(this.interval)
+      this.interval = null
+
+      arenaDivLeft.classList.add('animateGrow')
+      arenaDivRight.classList.add('animateGrow')
+      arenaDivMiddle.classList.add('animateShrink')
     }
   },
   created() {
@@ -177,7 +183,7 @@ main {
 #arena {
   height: 10rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 #imgChoiceUser,
@@ -185,16 +191,27 @@ main {
   opacity: 0.2;
 }
 
-#beforeImgChoiceUser,
-#afterImgChoiceComputer {
-  transition: 1s;
-  flex-grow: 0;
+#arenaDivLeft,
+#arenaDivRight {
+  display: none;
 }
 
-#afterImgChoiceUser,
-#beforeImgChoiceComputer {
-  transition: 1s;
-  flex-grow: 1;
+#arenaDivLeft.animateGrow,
+#arenaDivRight.animateGrow {
+  width: 0%;
+  display: flex;
+}
+
+#arenaDivMiddle {
+  width: 100%;
+}
+
+.animateGrow {
+  animation: 1s ease-in forwards grow;
+}
+
+.animateShrink {
+  animation: 1s ease-in forwards shrink;
 }
 
 .input,
@@ -208,5 +225,23 @@ nav {
   display: block;
   pointer-events: none;
   height: 5rem;
+}
+
+@keyframes grow {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
 }
 </style>
