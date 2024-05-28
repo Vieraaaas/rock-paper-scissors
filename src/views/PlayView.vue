@@ -143,6 +143,8 @@ export default {
       arenaDivLeft.classList.remove('animateGrow')
       arenaDivRight.classList.remove('animateGrow')
       arenaDivMiddle.classList.remove('animateShrink')
+      imgChoiceUser.classList.remove('animateRotateUser')
+      imgChoiceComputer.classList.remove('animateRotateComputer')
 
       imgChoiceUser.src = `src/assets/images/${this.choiceUser.toLowerCase()}.svg`
       imgChoiceUser.style.opacity = 1
@@ -161,6 +163,8 @@ export default {
       arenaDivLeft.classList.add('animateGrow')
       arenaDivRight.classList.add('animateGrow')
       arenaDivMiddle.classList.add('animateShrink')
+      imgChoiceUser.classList.add('animateRotateUser')
+      imgChoiceComputer.classList.add('animateRotateComputer')
     }
   },
   created() {
@@ -184,11 +188,13 @@ main {
   height: 10rem;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 #imgChoiceUser,
 #imgChoiceComputer {
   opacity: 0.2;
+  transition: rotate 1s;
 }
 
 #arenaDivLeft,
@@ -212,6 +218,14 @@ main {
 
 .animateShrink {
   animation: 1s ease-in forwards shrink;
+}
+
+.animateRotateUser {
+  animation: 1s ease-in forwards rotate-user;
+}
+
+.animateRotateComputer {
+  animation: 1s ease-in forwards rotate-computer;
 }
 
 .input,
@@ -242,6 +256,23 @@ nav {
   }
   100% {
     width: 0%;
+  }
+}
+
+@keyframes rotate-user {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 75deg;
+  }
+}
+@keyframes rotate-computer {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: -75deg;
   }
 }
 </style>
