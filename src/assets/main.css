@@ -44,12 +44,21 @@ button {
   display: inline-block;
   color: var(--black);
   background-color: var(--main-color);
-  border: 0.125rem solid var(--black);
+  border: none;
+  outline: 0.125rem solid var(--black);
   text-decoration: none;
   padding: 0.25rem 1rem;
   margin: 0.5rem;
 }
-
+a:hover,
+router-link:hover,
 button:hover {
   cursor: pointer;
+  outline: 0.25rem solid var(--black);
+}
+a:active,
+router-link:active,
+button:active {
+  scale: 90%;
+  outline: 0.25rem solid var(--black);
 }
