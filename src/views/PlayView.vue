@@ -133,7 +133,7 @@ export default {
       }
     },
 
-    animateRound() {
+    resetAnimation() {
       const imgChoiceUser = document.getElementById('imgChoiceUser')
       const imgChoiceComputer = document.getElementById('imgChoiceComputer')
       const arenaDivLeft = document.getElementById('arenaDivLeft')
@@ -145,6 +145,19 @@ export default {
       arenaDivMiddle.classList.remove('animateShrink')
       imgChoiceUser.classList.remove('animateRotateUser')
       imgChoiceComputer.classList.remove('animateRotateComputer')
+
+      imgChoiceUser.style.opacity = 0.2
+      imgChoiceComputer.style.opacity = 0.2
+    },
+
+    animateRound() {
+      const imgChoiceUser = document.getElementById('imgChoiceUser')
+      const imgChoiceComputer = document.getElementById('imgChoiceComputer')
+      const arenaDivLeft = document.getElementById('arenaDivLeft')
+      const arenaDivMiddle = document.getElementById('arenaDivMiddle')
+      const arenaDivRight = document.getElementById('arenaDivRight')
+
+      this.resetAnimation()
 
       imgChoiceUser.src = `src/assets/images/${this.choiceUser.toLowerCase()}.svg`
       imgChoiceUser.style.opacity = 1
@@ -170,6 +183,14 @@ export default {
   created() {
     this.state.loadStats()
     this.cycleImages()
+  },
+  mounted() {
+    this.resetAnimation()
+  },
+
+  unmounted() {
+    clearInterval(this.interval)
+    this.interval = null
   }
 }
 </script>
