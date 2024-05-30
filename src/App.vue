@@ -1,14 +1,21 @@
 <template>
   <header class="site-header">
     <h1>
-      <span class="rock">ROCK</span>
-      <span class="paper">PAPER</span>
-      <span class="scissors">SCISSORS</span>
+      <span class="rock">{{ t('header-one') }}</span>
+      <span class="paper">{{ t('header-two') }}</span>
+      <span class="scissors">{{ t('header-three') }}</span>
     </h1>
+    <LanguageSwitcher />
   </header>
 
   <router-view />
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+import LanguageSwitcher from './components/LanguageSwitcher.vue'
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .site-header {

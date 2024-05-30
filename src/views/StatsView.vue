@@ -112,7 +112,7 @@ export default {
     },
 
     resetStats() {
-      localStorage.clear()
+      localStorage.removeItem('stats')
       window.location.reload()
     }
   },
