@@ -1,4 +1,5 @@
-# Rock - Paper - Scissors in Vue.js <img href="src/assets/images/vue.svg" alt="logo for vue.js" />
+# Rock - Paper - Scissors in Vue.js <img src="src/assets/images/vue.svg" alt="logo for vue.js" height="30"/>
+
 
 ## Features
 
