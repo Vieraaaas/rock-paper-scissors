@@ -1,55 +1,90 @@
 <template>
   <main>
-    <h2>Your Statistics</h2>
+    <h2>{{ t('your-statistics') }}</h2>
 
-    <h3>You</h3>
+    <h3>{{ t('you') }}</h3>
     <ul>
-      <li v-if="!this.showPercentages">Rock: {{ this.state.data.userRock }}</li>
-      <li v-else-if="this.showPercentages">Rock: {{ ~~this.percentageUserRock }}%</li>
+      <li v-if="!this.showPercentages">{{ t('rock') }}: {{ this.state.data.userRock }}</li>
+      <li v-else-if="this.showPercentages">{{ t('rock') }}: {{ ~~this.percentageUserRock }}%</li>
 
-      <li v-if="!this.showPercentages">Paper: {{ this.state.data.userPaper }}</li>
-      <li v-else-if="this.showPercentages">Paper: {{ ~~this.percentageUserPaper }}%</li>
+      <li v-if="!this.showPercentages">{{ t('paper') }}: {{ this.state.data.userPaper }}</li>
+      <li v-else-if="this.showPercentages">{{ t('paper') }}: {{ ~~this.percentageUserPaper }}%</li>
 
-      <li v-if="!this.showPercentages">Scissors: {{ this.state.data.userScissors }}</li>
-      <li v-else-if="this.showPercentages">Scissors: {{ ~~this.percentageUserScissors }}%</li>
+      <li v-if="!this.showPercentages">{{ t('scissors') }}: {{ this.state.data.userScissors }}</li>
+      <li v-else-if="this.showPercentages">
+        {{ t('scissors') }}: {{ ~~this.percentageUserScissors }}%
+      </li>
     </ul>
-    <h3>Computer</h3>
+    <h3>{{ t('computer') }}</h3>
     <ul>
-      <li v-if="!this.showPercentages">Rock: {{ this.state.data.computerRock }}</li>
-      <li v-else-if="this.showPercentages">Rock: {{ ~~this.percentageComputerRock }}%</li>
+      <li v-if="!this.showPercentages">{{ t('rock') }}: {{ this.state.data.computerRock }}</li>
+      <li v-else-if="this.showPercentages">
+        {{ t('rock') }}: {{ ~~this.percentageComputerRock }}%
+      </li>
 
-      <li v-if="!this.showPercentages">Paper: {{ this.state.data.computerPaper }}</li>
-      <li v-else-if="this.showPercentages">Paper: {{ ~~this.percentageComputerPaper }}%</li>
+      <li v-if="!this.showPercentages">{{ t('paper') }}: {{ this.state.data.computerPaper }}</li>
+      <li v-else-if="this.showPercentages">
+        {{ t('paper') }}: {{ ~~this.percentageComputerPaper }}%
+      </li>
 
-      <li v-if="!this.showPercentages">Scissors: {{ this.state.data.computerScissors }}</li>
-      <li v-else-if="this.showPercentages">Scissors: {{ ~~this.percentageComputerScissors }}%</li>
+      <li v-if="!this.showPercentages">
+        {{ t('scissors') }}: {{ this.state.data.computerScissors }}
+      </li>
+      <li v-else-if="this.showPercentages">
+        {{ t('scissors') }}: {{ ~~this.percentageComputerScissors }}%
+      </li>
     </ul>
-    <h3>Matches</h3>
+    <h3>{{ t('matches') }}</h3>
     <ul>
-      <li v-if="!this.showPercentages">Matches won: {{ this.state.data.matchesWon }}</li>
-      <li v-else-if="this.showPercentages">Matches won: {{ ~~this.percentageMatchesWon }}%</li>
+      <li v-if="!this.showPercentages">
+        {{ t('matches') }} {{ t('won') }}: {{ this.state.data.matchesWon }}
+      </li>
+      <li v-else-if="this.showPercentages">
+        {{ t('matches') }} {{ t('won') }}: {{ ~~this.percentageMatchesWon }}%
+      </li>
 
-      <li v-if="!this.showPercentages">Matches lost: {{ this.state.data.matchesLost }}</li>
-      <li v-else-if="this.showPercentages">Matches lost: {{ ~~this.percentageMatchesLost }}%</li>
+      <li v-if="!this.showPercentages">
+        {{ t('matches') }} {{ t('lost') }}: {{ this.state.data.matchesLost }}
+      </li>
+      <li v-else-if="this.showPercentages">
+        {{ t('matches') }} {{ t('lost') }}: {{ ~~this.percentageMatchesLost }}%
+      </li>
 
       <br />
-      <li v-if="!this.showPercentages">Rounds won: {{ this.state.data.roundsWon }}</li>
-      <li v-else-if="this.showPercentages">Rounds won: {{ ~~this.percentageRoundsWon }}%</li>
+      <li v-if="!this.showPercentages">
+        {{ t('rounds') }} {{ t('won') }}: {{ this.state.data.roundsWon }}
+      </li>
+      <li v-else-if="this.showPercentages">
+        {{ t('rounds') }} {{ t('won') }}: {{ ~~this.percentageRoundsWon }}%
+      </li>
 
-      <li v-if="!this.showPercentages">Rounds lost: {{ this.state.data.roundsLost }}</li>
-      <li v-else-if="this.showPercentages">Rounds lost: {{ ~~this.percentageRoundsLost }}%</li>
+      <li v-if="!this.showPercentages">
+        {{ t('rounds') }} {{ t('lost') }}: {{ this.state.data.roundsLost }}
+      </li>
+      <li v-else-if="this.showPercentages">
+        {{ t('rounds') }} {{ t('lost') }}: {{ ~~this.percentageRoundsLost }}%
+      </li>
 
-      <li v-if="!this.showPercentages">Rounds drawn: {{ this.state.data.drawn }}</li>
-      <li v-else-if="this.showPercentages">Rounds drawn: {{ ~~this.percentageRoundsDrawn }}%</li>
+      <li v-if="!this.showPercentages">
+        {{ t('rounds') }} {{ t('drawn') }}: {{ this.state.data.drawn }}
+      </li>
+      <li v-else-if="this.showPercentages">
+        {{ t('rounds') }} {{ t('drawn') }}: {{ ~~this.percentageRoundsDrawn }}%
+      </li>
     </ul>
 
     <button @click="toggleStats">{{ this.toggleText }}</button>
     <br />
 
-    <button @click="resetStats">Reset All Stats</button>
-    <router-link :to="{ name: 'Start' }">Back</router-link>
+    <button @click="resetStats">{{ t('reset-all-stats') }}</button>
+    <router-link :to="{ name: 'Start' }">{{ t('back') }}</router-link>
   </main>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+</script>
 
 <script>
 import { statsStore } from '@/stores/stats.js'
@@ -59,7 +94,7 @@ export default {
     return {
       state: statsStore(),
       showPercentages: false,
-      toggleText: 'Show Percentages'
+      toggleText: this.$t('show-percentages')
     }
   },
 
@@ -108,7 +143,9 @@ export default {
   methods: {
     toggleStats() {
       this.showPercentages = !this.showPercentages
-      this.toggleText = this.showPercentages ? 'Show Integers' : 'Show Percentages'
+      this.toggleText = this.showPercentages
+        ? this.$t('show-integers')
+        : this.$t('show-percentages')
     },
 
     resetStats() {

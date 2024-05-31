@@ -14,6 +14,7 @@ const { locale } = useI18n()
 const setLanguage = (newLang) => {
   locale.value = newLang
   localStorage.setItem('lang', newLang)
+  window.location.reload()
 }
 
 watchEffect(() => {

@@ -1,5 +1,22 @@
 {
   "header-one": "SCHERE",
   "header-two": "STEIN",
-  "header-three": "PAPIER"
+  "header-three": "PAPIER",
+  "rock": "Stein",
+  "paper": "Papier",
+  "scissors": "Schere",
+  "play": "Spielen",
+  "stats": "Statistiken",
+  "back": "Zurück",
+  "your-statistics": "Deine Statistiken",
+  "you": "Du",
+  "computer": "Computer",
+  "matches": "Partien",
+  "rounds": "Runden",
+  "won": "gewonnen",
+  "lost": "verloren",
+  "drawn": "unentschieden",
+  "show-percentages": "Zeige Prozente",
+  "show-integers": "Zeige ganze Zahlen",
+  "reset-all-stats": "Alles zurücksetzen"
 }

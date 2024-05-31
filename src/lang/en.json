@@ -1,5 +1,22 @@
 {
   "header-one": "ROCK",
   "header-two": "PAPER",
-  "header-three": "SCISSORS"
+  "header-three": "SCISSORS",
+  "rock": "Rock",
+  "paper": "Paper",
+  "scissors": "Scissors",
+  "play": "Play",
+  "stats": "Stats",
+  "back": "Back",
+  "your-statistics": "Your Statistics",
+  "you": "You",
+  "computer": "Computer",
+  "matches": "Matches",
+  "rounds": "Rounds",
+  "won": "won",
+  "lost": "lost",
+  "drawn": "drawn",
+  "show-percentages": "Show Percentages",
+  "show-integers": "Show Integers",
+  "reset-all-stats": "Reset All Stats"
 }

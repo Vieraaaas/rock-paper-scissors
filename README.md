@@ -4,6 +4,7 @@
 
 - Several views bundled in an easy to use <strong>single-page application</strong>
 - State management via <strong>Pinia</strong> and <strong>local storage</strong>
+- <strong>Internationalization</strong>: toggle between English and German
 - Show <strong>statistics</strong> in integers or percentages
 - Smooth <strong>animations</strong> through CSS and JavaScript
 
