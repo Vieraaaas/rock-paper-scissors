@@ -18,5 +18,16 @@
   "drawn": "drawn",
   "show-percentages": "Show Percentages",
   "show-integers": "Show Integers",
-  "reset-all-stats": "Reset All Stats"
+  "reset-all-stats": "Reset All Stats",
+  "your-score": "Your Score",
+  "computers-score": "Computer's Score",
+  "again": "Again",
+  "enough": "That's enough for now",
+  "result-draw": "It's a draw! You both chose",
+  "result-win-start": "You've scored a point! You chose",
+  "result-loss-start": "You've lost this round! You chose",
+  "result-end": "and the computer chose",
+  "error": "Uh-oh! Looks like something went wrong.",
+  "win-message": "You've won! Congratulations!",
+  "loss-message": "You've lost! Better luck next time!"
 }

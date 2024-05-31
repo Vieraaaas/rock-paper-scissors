@@ -18,5 +18,16 @@
   "drawn": "unentschieden",
   "show-percentages": "Zeige Prozente",
   "show-integers": "Zeige ganze Zahlen",
-  "reset-all-stats": "Alles zurücksetzen"
+  "reset-all-stats": "Alles zurücksetzen",
+  "your-score": "Deine Punkte",
+  "computers-score": "Computerpunkte",
+  "again": "Nochmal",
+  "enough": "Das reicht erstmal",
+  "result-draw": "Unentschieden! Beide Spieler wählten",
+  "result-win-start": "Du hast einen Punkt gemacht! Du hast",
+  "result-loss-start": "Du hast diese Runde verloren! Du hast",
+  "result-end": "gewählt und der Computer",
+  "error": "Hoppla! Irgendetwas ist schiefgelaufen.",
+  "win-message": "Du hast gewonnen! Herzlichen Glückwunsch!",
+  "loss-message": "Du hast verloren! Mehr Glück beim nächsten Mal!"
 }

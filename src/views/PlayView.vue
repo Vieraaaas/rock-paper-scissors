@@ -1,8 +1,8 @@
 <template>
   <main>
     <div class="scores">
-      <p>Your Score: {{ this.scoreUser }}</p>
-      <p>Computer's Score: {{ this.scoreComputer }}</p>
+      <p>{{ t('your-score') }}: {{ this.scoreUser }}</p>
+      <p>{{ t('computers-score') }} {{ this.scoreComputer }}</p>
     </div>
 
     <div id="arena" aria-hidden="true">
@@ -14,16 +14,16 @@
     </div>
 
     <div class="input">
-      <button choice="Rock" @click="playRound">
-        ROCK
+      <button :choice="rock" @click="playRound">
+        {{ t('rock').toUpperCase() }}
         <img class="button-img" src="@/assets/images/rock.svg" aria-hidden="true" />
       </button>
-      <button choice="Paper" @click="playRound">
-        PAPER
+      <button :choice="paper" @click="playRound">
+        {{ t('paper').toUpperCase() }}
         <img class="button-img" src="@/assets/images/paper.svg" aria-hidden="true" />
       </button>
-      <button choice="Scissors" @click="playRound">
-        SCISSORS
+      <button :choice="scissors" @click="playRound">
+        {{ t('scissors').toUpperCase() }}
         <img class="button-img" src="@/assets/images/scissors.svg" aria-hidden="true" />
       </button>
     </div>
@@ -31,16 +31,21 @@
       <p>{{ result }}</p>
       <dialog ref="match-end">
         <p>{{ this.endMsg }}</p>
-        <button @click="playAgain">Again!</button>
-        <router-link :to="{ name: 'Start' }">That's enough for now</router-link>
+        <button @click="playAgain">{{ t('again') }}!</button>
+        <router-link :to="{ name: 'Start' }">{{ t('enough') }}</router-link>
       </dialog>
     </div>
 
     <nav>
-      <router-link :to="{ name: 'Start' }">Back</router-link>
+      <router-link :to="{ name: 'Start' }">{{ t('back') }}</router-link>
     </nav>
   </main>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+</script>
 
 <script>
 import { statsStore } from '@/stores/stats.js'
@@ -51,7 +56,10 @@ export default {
       state: statsStore(),
       scoreUser: 0,
       scoreComputer: 0,
-      choices: ['Rock', 'Paper', 'Scissors'],
+      rock: this.$t('rock'),
+      paper: this.$t('paper'),
+      scissors: this.$t('scissors'),
+      choices: [],
       choiceUser: '',
       choiceComputer: '',
       result: '',
@@ -67,26 +75,34 @@ export default {
       this.animateRound()
 
       if (this.choiceComputer === this.choiceUser) {
-        this.result = `It's a draw! You both chose ${this.choiceUser}`
+        this.result = this.$t('result-draw') + ` ${this.choiceUser}`
         this.state.data.drawn += 1
       } else if (
-        (this.choiceComputer === 'Rock' && this.choiceUser === 'Paper') ||
-        (this.choiceComputer === 'Paper' && this.choiceUser === 'Scissors') ||
-        (this.choiceComputer === 'Scissors' && this.choiceUser === 'Rock')
+        (this.choiceComputer === this.rock && this.choiceUser === this.paper) ||
+        (this.choiceComputer === this.paper && this.choiceUser === this.scissors) ||
+        (this.choiceComputer === this.scissors && this.choiceUser === this.rock)
       ) {
-        this.result = `You've scored a point! You chose ${this.choiceUser} and the computer chose ${this.choiceComputer}`
+        this.result =
+          this.$t('result-win-start') +
+          ` ${this.choiceUser} ` +
+          this.$t('result-end') +
+          ` ${this.choiceComputer}`
         this.scoreUser++
         this.state.data.roundsWon += 1
       } else if (
-        (this.choiceComputer === 'Rock' && this.choiceUser === 'Scissors') ||
-        (this.choiceComputer === 'Paper' && this.choiceUser === 'Rock') ||
-        (this.choiceComputer === 'Scissors' && this.choiceUser === 'Paper')
+        (this.choiceComputer === this.rock && this.choiceUser === this.scissors) ||
+        (this.choiceComputer === this.paper && this.choiceUser === this.rock) ||
+        (this.choiceComputer === this.scissors && this.choiceUser === this.paper)
       ) {
-        this.result = `You've lost this round! You chose ${this.choiceUser} and the computer chose ${this.choiceComputer}`
+        this.result =
+          this.$t('result-loss-start') +
+          ` ${this.choiceUser} ` +
+          this.$t('result-end') +
+          ` ${this.choiceComputer}`
         this.scoreComputer++
         this.state.data.roundsLost += 1
       } else {
-        this.result = 'Uh-oh! Looks like something went wrong.'
+        this.result = this.$t('error')
       }
 
       this.state.data[`user${this.choiceUser}`] += 1
@@ -94,13 +110,13 @@ export default {
 
       if (this.scoreUser >= 3) {
         this.state.data.matchesWon += 1
-        this.endMsg = "You've won! Congratulations!"
+        this.endMsg = this.$t('win-message')
         this.openDialog()
       }
 
       if (this.scoreComputer >= 3) {
         this.state.data.matchesLost += 1
-        this.endMsg = "You've lost! Better luck next time!"
+        this.endMsg = this.$t('loss-message')
         this.openDialog()
       }
 
@@ -183,6 +199,7 @@ export default {
   created() {
     this.state.loadStats()
     this.cycleImages()
+    this.choices = [this.rock, this.paper, this.scissors]
   },
   mounted() {
     this.resetAnimation()
