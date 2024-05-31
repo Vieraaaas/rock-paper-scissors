@@ -1,8 +1,8 @@
 <template>
   <main>
     <div class="scores">
-      <p>{{ t('your-score') }}: {{ this.scoreUser }}</p>
-      <p>{{ t('computers-score') }} {{ this.scoreComputer }}</p>
+      <p>{{ t('your-score') }}: {{ scoreUser }}</p>
+      <p>{{ t('computers-score') }} {{ scoreComputer }}</p>
     </div>
 
     <div id="arena" aria-hidden="true">
@@ -30,7 +30,7 @@
     <div class="output">
       <p>{{ result }}</p>
       <dialog ref="match-end">
-        <p>{{ this.endMsg }}</p>
+        <p>{{ endMsg }}</p>
         <button @click="playAgain">{{ t('again') }}!</button>
         <router-link :to="{ name: 'Start' }">{{ t('enough') }}</router-link>
       </dialog>

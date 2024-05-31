@@ -4,76 +4,62 @@
 
     <h3>{{ t('you') }}</h3>
     <ul>
-      <li v-if="!this.showPercentages">{{ t('rock') }}: {{ this.state.data.userRock }}</li>
-      <li v-else-if="this.showPercentages">{{ t('rock') }}: {{ ~~this.percentageUserRock }}%</li>
+      <li v-if="!showPercentages">{{ t('rock') }}: {{ state.data.userRock }}</li>
+      <li v-else-if="showPercentages">{{ t('rock') }}: {{ ~~percentageUserRock }}%</li>
 
-      <li v-if="!this.showPercentages">{{ t('paper') }}: {{ this.state.data.userPaper }}</li>
-      <li v-else-if="this.showPercentages">{{ t('paper') }}: {{ ~~this.percentageUserPaper }}%</li>
+      <li v-if="!showPercentages">{{ t('paper') }}: {{ state.data.userPaper }}</li>
+      <li v-else-if="showPercentages">{{ t('paper') }}: {{ ~~percentageUserPaper }}%</li>
 
-      <li v-if="!this.showPercentages">{{ t('scissors') }}: {{ this.state.data.userScissors }}</li>
-      <li v-else-if="this.showPercentages">
-        {{ t('scissors') }}: {{ ~~this.percentageUserScissors }}%
-      </li>
+      <li v-if="!showPercentages">{{ t('scissors') }}: {{ state.data.userScissors }}</li>
+      <li v-else-if="showPercentages">{{ t('scissors') }}: {{ ~~percentageUserScissors }}%</li>
     </ul>
     <h3>{{ t('computer') }}</h3>
     <ul>
-      <li v-if="!this.showPercentages">{{ t('rock') }}: {{ this.state.data.computerRock }}</li>
-      <li v-else-if="this.showPercentages">
-        {{ t('rock') }}: {{ ~~this.percentageComputerRock }}%
-      </li>
+      <li v-if="!showPercentages">{{ t('rock') }}: {{ state.data.computerRock }}</li>
+      <li v-else-if="showPercentages">{{ t('rock') }}: {{ ~~percentageComputerRock }}%</li>
 
-      <li v-if="!this.showPercentages">{{ t('paper') }}: {{ this.state.data.computerPaper }}</li>
-      <li v-else-if="this.showPercentages">
-        {{ t('paper') }}: {{ ~~this.percentageComputerPaper }}%
-      </li>
+      <li v-if="!showPercentages">{{ t('paper') }}: {{ state.data.computerPaper }}</li>
+      <li v-else-if="showPercentages">{{ t('paper') }}: {{ ~~percentageComputerPaper }}%</li>
 
-      <li v-if="!this.showPercentages">
-        {{ t('scissors') }}: {{ this.state.data.computerScissors }}
-      </li>
-      <li v-else-if="this.showPercentages">
-        {{ t('scissors') }}: {{ ~~this.percentageComputerScissors }}%
-      </li>
+      <li v-if="!showPercentages">{{ t('scissors') }}: {{ state.data.computerScissors }}</li>
+      <li v-else-if="showPercentages">{{ t('scissors') }}: {{ ~~percentageComputerScissors }}%</li>
     </ul>
     <h3>{{ t('matches') }}</h3>
     <ul>
-      <li v-if="!this.showPercentages">
-        {{ t('matches') }} {{ t('won') }}: {{ this.state.data.matchesWon }}
+      <li v-if="!showPercentages">
+        {{ t('matches') }} {{ t('won') }}: {{ state.data.matchesWon }}
       </li>
-      <li v-else-if="this.showPercentages">
-        {{ t('matches') }} {{ t('won') }}: {{ ~~this.percentageMatchesWon }}%
+      <li v-else-if="showPercentages">
+        {{ t('matches') }} {{ t('won') }}: {{ ~~percentageMatchesWon }}%
       </li>
 
-      <li v-if="!this.showPercentages">
-        {{ t('matches') }} {{ t('lost') }}: {{ this.state.data.matchesLost }}
+      <li v-if="!showPercentages">
+        {{ t('matches') }} {{ t('lost') }}: {{ state.data.matchesLost }}
       </li>
-      <li v-else-if="this.showPercentages">
-        {{ t('matches') }} {{ t('lost') }}: {{ ~~this.percentageMatchesLost }}%
+      <li v-else-if="showPercentages">
+        {{ t('matches') }} {{ t('lost') }}: {{ ~~percentageMatchesLost }}%
       </li>
 
       <br />
-      <li v-if="!this.showPercentages">
-        {{ t('rounds') }} {{ t('won') }}: {{ this.state.data.roundsWon }}
-      </li>
-      <li v-else-if="this.showPercentages">
-        {{ t('rounds') }} {{ t('won') }}: {{ ~~this.percentageRoundsWon }}%
+      <li v-if="!showPercentages">{{ t('rounds') }} {{ t('won') }}: {{ state.data.roundsWon }}</li>
+      <li v-else-if="showPercentages">
+        {{ t('rounds') }} {{ t('won') }}: {{ ~~percentageRoundsWon }}%
       </li>
 
-      <li v-if="!this.showPercentages">
-        {{ t('rounds') }} {{ t('lost') }}: {{ this.state.data.roundsLost }}
+      <li v-if="!showPercentages">
+        {{ t('rounds') }} {{ t('lost') }}: {{ state.data.roundsLost }}
       </li>
-      <li v-else-if="this.showPercentages">
-        {{ t('rounds') }} {{ t('lost') }}: {{ ~~this.percentageRoundsLost }}%
+      <li v-else-if="showPercentages">
+        {{ t('rounds') }} {{ t('lost') }}: {{ ~~percentageRoundsLost }}%
       </li>
 
-      <li v-if="!this.showPercentages">
-        {{ t('rounds') }} {{ t('drawn') }}: {{ this.state.data.drawn }}
-      </li>
-      <li v-else-if="this.showPercentages">
-        {{ t('rounds') }} {{ t('drawn') }}: {{ ~~this.percentageRoundsDrawn }}%
+      <li v-if="!showPercentages">{{ t('rounds') }} {{ t('drawn') }}: {{ state.data.drawn }}</li>
+      <li v-else-if="showPercentages">
+        {{ t('rounds') }} {{ t('drawn') }}: {{ ~~percentageRoundsDrawn }}%
       </li>
     </ul>
 
-    <button @click="toggleStats">{{ this.toggleText }}</button>
+    <button @click="toggleStats">{{ toggleText }}</button>
     <br />
 
     <button @click="resetStats">{{ t('reset-all-stats') }}</button>
