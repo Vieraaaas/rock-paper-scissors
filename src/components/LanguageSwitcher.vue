@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button @click="setLanguage('en')">English</button>
-    <button @click="setLanguage('ger')">German</button>
+    <button class="english" @click="setLanguage('en')"></button>
+    <button class="german" @click="setLanguage('ger')"></button>
   </div>
 </template>
 
@@ -23,3 +23,20 @@ watchEffect(() => {
   }
 })
 </script>
+
+<style scoped>
+button {
+  height: 1.5rem;
+  width: 2.15rem;
+  padding: 0;
+  outline: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.english {
+  background-image: url(@/assets/images/uk-flag.svg);
+}
+.german {
+  background-image: url(@/assets/images/german-flag.svg);
+}
+</style>
