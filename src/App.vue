@@ -5,7 +5,7 @@
       <span class="paper">{{ t('header-two') }}</span>
       <span class="scissors">{{ t('header-three') }}</span>
     </h1>
-    <LanguageSwitcher />
+    <LanguageSwitcher class="langSwitcher" />
   </header>
 
   <router-view />
@@ -37,5 +37,11 @@ const { t } = useI18n()
 .scissors {
   display: inline-block;
   transform: rotate(-5deg);
+}
+
+.langSwitcher {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 </style>
