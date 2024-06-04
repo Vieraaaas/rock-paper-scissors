@@ -68,6 +68,15 @@ export default {
     playRound(event) {
       this.choiceComputer = this.choices[Math.floor(Math.random() * this.choices.length)]
       this.choiceUser = event.target.getAttribute('choice')
+      let resultChoiceUser = ''
+      let resultChoiceComputer = ''
+      if (localStorage.getItem('lang') === 'ger') {
+        resultChoiceUser = this.$t(this.choiceUser.toLowerCase())
+        resultChoiceComputer = this.$t(this.choiceComputer.toLowerCase())
+      } else {
+        resultChoiceUser = this.choiceUser
+        resultChoiceComputer = this.choiceComputer
+      }
 
       this.animateRound()
 
@@ -81,9 +90,9 @@ export default {
       ) {
         this.result =
           this.$t('result-win-start') +
-          ` ${this.choiceUser} ` +
+          ` ${resultChoiceUser} ` +
           this.$t('result-end') +
-          ` ${this.choiceComputer}`
+          ` ${resultChoiceComputer}`
         this.scoreUser++
         this.state.data.roundsWon += 1
       } else if (
@@ -93,9 +102,9 @@ export default {
       ) {
         this.result =
           this.$t('result-loss-start') +
-          ` ${this.choiceUser} ` +
+          ` ${resultChoiceUser} ` +
           this.$t('result-end') +
-          ` ${this.choiceComputer}`
+          ` ${resultChoiceComputer}`
         this.scoreComputer++
         this.state.data.roundsLost += 1
       } else {
