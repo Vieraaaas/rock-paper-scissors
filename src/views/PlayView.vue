@@ -14,15 +14,15 @@
     </div>
 
     <div class="input">
-      <button :choice="rock" @click="playRound">
+      <button choice="Rock" @click="playRound">
         {{ t('rock').toUpperCase() }}
         <img class="button-img" src="@/assets/images/rock.svg" aria-hidden="true" />
       </button>
-      <button :choice="paper" @click="playRound">
+      <button choice="Paper" @click="playRound">
         {{ t('paper').toUpperCase() }}
         <img class="button-img" src="@/assets/images/paper.svg" aria-hidden="true" />
       </button>
-      <button :choice="scissors" @click="playRound">
+      <button choice="Scissors" @click="playRound">
         {{ t('scissors').toUpperCase() }}
         <img class="button-img" src="@/assets/images/scissors.svg" aria-hidden="true" />
       </button>
@@ -56,10 +56,7 @@ export default {
       state: statsStore(),
       scoreUser: 0,
       scoreComputer: 0,
-      rock: this.$t('rock'),
-      paper: this.$t('paper'),
-      scissors: this.$t('scissors'),
-      choices: [],
+      choices: ['Rock', 'Paper', 'Scissors'],
       choiceUser: '',
       choiceComputer: '',
       result: '',
@@ -78,9 +75,9 @@ export default {
         this.result = this.$t('result-draw') + ` ${this.choiceUser}`
         this.state.data.drawn += 1
       } else if (
-        (this.choiceComputer === this.rock && this.choiceUser === this.paper) ||
-        (this.choiceComputer === this.paper && this.choiceUser === this.scissors) ||
-        (this.choiceComputer === this.scissors && this.choiceUser === this.rock)
+        (this.choiceComputer === 'Rock' && this.choiceUser === 'Paper') ||
+        (this.choiceComputer === 'Paper' && this.choiceUser === 'Scissors') ||
+        (this.choiceComputer === 'Scissors' && this.choiceUser === 'Rock')
       ) {
         this.result =
           this.$t('result-win-start') +
@@ -90,9 +87,9 @@ export default {
         this.scoreUser++
         this.state.data.roundsWon += 1
       } else if (
-        (this.choiceComputer === this.rock && this.choiceUser === this.scissors) ||
-        (this.choiceComputer === this.paper && this.choiceUser === this.rock) ||
-        (this.choiceComputer === this.scissors && this.choiceUser === this.paper)
+        (this.choiceComputer === 'Rock' && this.choiceUser === 'Scissors') ||
+        (this.choiceComputer === 'Paper' && this.choiceUser === 'Rock') ||
+        (this.choiceComputer === 'Scissors' && this.choiceUser === 'Paper')
       ) {
         this.result =
           this.$t('result-loss-start') +
@@ -199,7 +196,6 @@ export default {
   created() {
     this.state.loadStats()
     this.cycleImages()
-    this.choices = [this.rock, this.paper, this.scissors]
   },
   mounted() {
     this.resetAnimation()
