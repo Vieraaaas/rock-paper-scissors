@@ -81,7 +81,7 @@ export default {
       this.animateRound()
 
       if (this.choiceComputer === this.choiceUser) {
-        this.result = this.$t('result-draw') + ` ${this.choiceUser}`
+        this.result = this.$t('result-draw') + ` ${resultChoiceUser}`
         this.state.data.drawn += 1
       } else if (
         (this.choiceComputer === 'Rock' && this.choiceUser === 'Paper') ||
