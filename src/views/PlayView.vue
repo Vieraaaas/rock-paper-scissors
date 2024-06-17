@@ -271,6 +271,10 @@ main {
   animation: 1s ease-in forwards rotate-computer;
 }
 
+.output {
+  text-align: center;
+}
+
 .input,
 .output,
 nav {
@@ -316,6 +320,33 @@ nav {
   }
   100% {
     rotate: -75deg;
+  }
+}
+
+@media (max-width: 480px) {
+  #imgChoiceUser,
+  #imgChoiceComputer {
+    max-height: 8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .input {
+    display: flex;
+    flex-direction: column;
+  }
+  #imgChoiceUser,
+  #imgChoiceComputer {
+    max-height: 6rem;
+  }
+  #arena {
+    height: 5rem;
+  }
+}
+
+@media (max-width: 280px) {
+  .scores {
+    text-align: center;
   }
 }
 </style>

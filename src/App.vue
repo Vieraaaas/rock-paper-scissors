@@ -44,4 +44,11 @@ const { t } = useI18n()
   top: 0.5rem;
   right: 0.5rem;
 }
+
+@media (max-width: 800px) {
+  .langSwitcher {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+}
 </style>

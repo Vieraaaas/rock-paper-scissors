@@ -3,6 +3,7 @@
 ## Features
 
 - Several views bundled in an easy to use <strong>single-page application</strong>
+- <strong>Responsive CSS</strong>
 - State management via <strong>Pinia</strong> and <strong>local storage</strong>
 - <strong>Internationalization</strong>: toggle between English and German
 - Show <strong>statistics</strong> in integers or percentages
