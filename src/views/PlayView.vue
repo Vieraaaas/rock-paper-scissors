@@ -141,7 +141,7 @@ export default {
       const choiceImages = [
         '../../public/images/rock.svg',
         '../../public/images/paper.svg',
-        '../../public/images/scissorsk.svg'
+        '../../public/images/scissors.svg'
       ]
 
       if (!this.interval) {
