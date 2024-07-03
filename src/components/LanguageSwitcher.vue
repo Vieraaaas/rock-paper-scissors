@@ -35,9 +35,9 @@ button {
   background-size: cover;
 }
 .english {
-  background-image: url(@/assets/images/uk-flag.svg);
+  background-image: url(../../public/images/uk-flag.svg);
 }
 .german {
-  background-image: url(@/assets/images/german-flag.svg);
+  background-image: url(../../public/images/german-flag.svg);
 }
 </style>

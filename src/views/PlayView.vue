@@ -7,24 +7,24 @@
 
     <div id="arena" aria-hidden="true">
       <div id="arenaDivLeft"></div>
-      <img id="imgChoiceUser" src="@/assets/images/rock.svg" />
+      <img id="imgChoiceUser" src="../../public/images/rock.svg" />
       <div id="arenaDivMiddle"></div>
-      <img id="imgChoiceComputer" src="@/assets/images/scissors.svg" />
+      <img id="imgChoiceComputer" src="../../public/images/scissors.svg" />
       <div id="arenaDivRight"></div>
     </div>
 
     <div class="input">
       <button choice="Rock" @click="playRound">
         {{ t('rock').toUpperCase() }}
-        <img class="button-img" src="@/assets/images/rock.svg" aria-hidden="true" />
+        <img class="button-img" src="../../public/images/rock.svg" aria-hidden="true" />
       </button>
       <button choice="Paper" @click="playRound">
         {{ t('paper').toUpperCase() }}
-        <img class="button-img" src="@/assets/images/paper.svg" aria-hidden="true" />
+        <img class="button-img" src="../../public/images/paper.svg" aria-hidden="true" />
       </button>
       <button choice="Scissors" @click="playRound">
         {{ t('scissors').toUpperCase() }}
-        <img class="button-img" src="@/assets/images/scissors.svg" aria-hidden="true" />
+        <img class="button-img" src="../../public/images/scissors.svg" aria-hidden="true" />
       </button>
     </div>
     <div class="output">
@@ -139,9 +139,9 @@ export default {
 
     cycleImages() {
       const choiceImages = [
-        'src/assets/images/rock.svg',
-        'src/assets/images/paper.svg',
-        'src/assets/images/scissors.svg'
+        '../../public/images/rock.svg',
+        '../../public/images/paper.svg',
+        '../../public/images/scissorsk.svg'
       ]
 
       if (!this.interval) {
@@ -181,10 +181,10 @@ export default {
 
       this.resetAnimation()
 
-      imgChoiceUser.src = `src/assets/images/${this.choiceUser.toLowerCase()}.svg`
+      imgChoiceUser.src = `../../public/images/${this.choiceUser.toLowerCase()}.svg`
       imgChoiceUser.style.opacity = 1
 
-      imgChoiceComputer.src = `src/assets/images/${this.choiceComputer.toLowerCase()}.svg`
+      imgChoiceComputer.src = `../../public/images/${this.choiceComputer.toLowerCase()}.svg`
       imgChoiceComputer.style.opacity = 1
 
       //Force reflow to ensure that the animation works on successive rounds successive -> https://developer.mozilla.org/en-US/docs/Glossary/Reflow
