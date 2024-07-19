@@ -29,5 +29,6 @@
   "result-end": "and the computer chose",
   "error": "Uh-oh! Looks like something went wrong.",
   "win-message": "You've won! Congratulations!",
-  "loss-message": "You've lost! Better luck next time!"
+  "loss-message": "You've lost! Better luck next time!",
+  "about": "About"
 }

@@ -29,5 +29,6 @@
   "result-end": "gewählt und der Computer",
   "error": "Hoppla! Irgendetwas ist schiefgelaufen.",
   "win-message": "Du hast gewonnen! Herzlichen Glückwunsch!",
-  "loss-message": "Du hast verloren! Mehr Glück beim nächsten Mal!"
+  "loss-message": "Du hast verloren! Mehr Glück beim nächsten Mal!",
+  "about": "Kleingedrucktes"
 }
