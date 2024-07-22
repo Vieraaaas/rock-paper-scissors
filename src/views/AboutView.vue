@@ -31,6 +31,7 @@ nav {
 }
 
 .link-elsewhere {
+  margin-top: 1rem;
   width: 100%;
   font-weight: bold;
   display: flex;
