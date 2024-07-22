@@ -30,5 +30,7 @@
   "error": "Uh-oh! Looks like something went wrong.",
   "win-message": "You've won! Congratulations!",
   "loss-message": "You've lost! Better luck next time!",
-  "about": "About"
+  "about": "About",
+  "github-link": "View this app on GitHub",
+  "linkedin-link": "Find me on LinkedIn®"
 }
