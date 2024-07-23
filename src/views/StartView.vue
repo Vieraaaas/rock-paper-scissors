@@ -2,7 +2,7 @@
   <main>
     <router-link :to="{ name: 'Play' }">{{ t('play') }}</router-link>
     <router-link :to="{ name: 'Stats' }">{{ t('stats') }}</router-link>
-    <router-link :to="{ name: 'About' }">{{ t('about') }}</router-link>
+    <router-link :to="{ name: 'Contact' }">{{ t('contact') }}</router-link>
   </main>
 </template>
 
