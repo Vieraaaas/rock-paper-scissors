@@ -4,6 +4,7 @@ import StartView from '@/views/StartView.vue'
 import PlayView from '@/views/PlayView.vue'
 import StatsView from '@/views/StatsView.vue'
 import ContactView from '@/views/ContactView.vue'
+import LegalView from '@/views/LegalView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/contact',
       name: 'Contact',
       component: ContactView
+    },
+    {
+      path: '/legal',
+      name: 'Legal',
+      component: LegalView
     }
   ]
 })
