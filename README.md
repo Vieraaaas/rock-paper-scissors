@@ -1,5 +1,7 @@
 # Rock - Paper - Scissors in Vue.js <img src="/public/images/vue.svg" alt="logo for vue.js" height="30"/>
 
+Check out the app [here](https://rock-paper-scissors-64t.pages.dev/).
+
 ## Features
 
 - Several views bundled in an easy to use <strong>single-page application</strong>
